@@ -1,0 +1,27 @@
+controller_list:
+  - name: fake_Arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - jaco_arm_0_joint
+      - jaco_arm_1_joint
+      - jaco_arm_2_joint
+      - jaco_arm_3_joint
+      - jaco_arm_4_joint
+      - jaco_arm_5_joint
+  - name: fake_All_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - jaco_arm_0_joint
+      - jaco_arm_1_joint
+      - jaco_arm_2_joint
+      - jaco_arm_3_joint
+      - jaco_arm_4_joint
+      - jaco_arm_5_joint
+      - jaco_finger_joint_0
+      - jaco_finger_joint_2
+      - jaco_finger_joint_4
+initial:  # Define initial robot poses.
+  - group: Arm
+    pose: home
+  - group: All
+    pose: home

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="husky-jaco" xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<!-- Included URDF Files -->
+	<xacro:include filename="$(find husky_description)/urdf/husky.urdf.xacro" />
+	<xacro:include filename="$(find jaco_description)/urdf/jaco_robot.urdf.xacro"/>
+
+		<link name="base_link">
+			<static>false</static>
+		</link>
+
+		<!-- Add your robot via a macro -->
+		<xacro:husky_decorate parent="base_link"/>
+
+		<xacro:jaco_arm parent="top_plate_link"
+			mass_divider="2" finger_mass_divider="1">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+        	<!-- set to true if you would like to add <transmission> tags -->
+          		<xacro:arg name="add_transmission_pos" default="true"/>
+        		<xacro:arg name="add_transmission_vel" default="true"/>
+		</xacro:jaco_arm>
+</robot>
